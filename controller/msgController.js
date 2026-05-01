@@ -1,4 +1,5 @@
 const Msg = require('../models/messageModel.js');
+const sendMail=require('../middleware/mailSending.js')
 
 const msgController = async (req, res) => {
   try {
@@ -17,6 +18,8 @@ const msgController = async (req, res) => {
       email,
       message
     });
+
+    await sendMail({ senderName, email, message });
 
     res.status(201).json({
       status: "Message stored successfully",
