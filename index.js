@@ -9,9 +9,8 @@ const app = express();
 const dbConfig = require('./config/mongDB_config.js');
 const createAdmin = require('./scripts/createAdmin.js');
 const login = require('./routes/loginroute.js');
-const event=require('./routes/img_routes.js')
-const getEvents=require('./routes/getEvents.js')
 
+const adminRoutes=require('./routes/adminRoutes.js')
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -20,8 +19,7 @@ app.use(express.json()); // better than bodyParser.json()
 
 // Routes
 app.use('/admin', login);
-app.use('/event',event);
-app.use('/event',getEvents);
+app.use('/admin',adminRoutes);
 
 // Start Server
 const startServer = async () => {
