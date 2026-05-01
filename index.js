@@ -10,6 +10,7 @@ const dbConfig = require('./config/mongDB_config.js');
 const createAdmin = require('./scripts/createAdmin.js');
 const login = require('./routes/loginroute.js');
 const event=require('./routes/img_routes.js')
+const getEvents=require('./routes/getEvents.js')
 
 const PORT = process.env.PORT || 5000;
 
@@ -20,6 +21,7 @@ app.use(express.json()); // better than bodyParser.json()
 // Routes
 app.use('/admin', login);
 app.use('/event',event);
+app.use('/event',getEvents);
 
 // Start Server
 const startServer = async () => {
