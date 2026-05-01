@@ -11,6 +11,7 @@ const createAdmin = require('./scripts/createAdmin.js');
 const login = require('./routes/loginroute.js');
 
 const adminRoutes=require('./routes/adminRoutes.js')
+const msgRoute=require('./routes/msgRoutes.js')
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -20,6 +21,7 @@ app.use(express.json()); // better than bodyParser.json()
 // Routes
 app.use('/admin', login);
 app.use('/admin',adminRoutes);
+app.use('/msg',msgRoute);
 
 // Start Server
 const startServer = async () => {
