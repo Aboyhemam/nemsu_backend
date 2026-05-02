@@ -19,7 +19,7 @@ const recordController= async(req,res)=>{
     })
     res.status(201).json({
       status: "Record stored successfully",
-      data: newMsg
+      data: newRecord
     });
 }catch(error){
     console.error(error);
