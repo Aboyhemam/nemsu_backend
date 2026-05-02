@@ -29,6 +29,6 @@ router.patch("/read/:id", async (req, res) => {
     });
   }
 });
-router.get('unread-count',noUnreadMsg);
+router.get('/unread-count',noUnreadMsg);
 
 module.exports=router;
