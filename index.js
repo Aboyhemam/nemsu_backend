@@ -13,6 +13,7 @@ const login = require('./routes/loginroute.js');
 const adminRoutes=require('./routes/adminRoutes.js')
 const msgRoute=require('./routes/msgRoutes.js')
 const financeRoute=require('./routes/financeRoutes.js')
+const getMsg=require('./routes/getMsgRoute.js')
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -24,6 +25,7 @@ app.use('/admin', login);
 app.use('/admin',adminRoutes);
 app.use('/msg',msgRoute);
 app.use('/finance',financeRoute);
+app.use('/msg',getMsg);
 
 // Start Server
 const startServer = async () => {
