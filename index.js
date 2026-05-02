@@ -12,6 +12,7 @@ const login = require('./routes/loginroute.js');
 
 const adminRoutes=require('./routes/adminRoutes.js')
 const msgRoute=require('./routes/msgRoutes.js')
+const financeRoute=require('./routes/financeRoutes.js')
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -22,6 +23,7 @@ app.use(express.json()); // better than bodyParser.json()
 app.use('/admin', login);
 app.use('/admin',adminRoutes);
 app.use('/msg',msgRoute);
+app.use('/finance',financeRoute);
 
 // Start Server
 const startServer = async () => {

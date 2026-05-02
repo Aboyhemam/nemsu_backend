@@ -1,36 +1,37 @@
-const transporter = require("../config/mailer.js");
+const { Resend } = require('resend');
 const Admin = require("../models/admin_model.js");
 
-const sendAdminMail = async ({ senderName, email, message }) => {
-  try {
-    
-    const admins = await Admin.find().select('email')
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const adminEmails = admins.map(admin => admin.email);
+const sendMails = async (senderName, email, message) => {
+  try {
+    const admins = await Admin.find().select('email');
+
+    const adminEmails = admins
+      .map(a => a.email)
+      .filter(Boolean);
 
     if (adminEmails.length === 0) {
       console.log("No admin emails found");
       return;
     }
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      bcc: adminEmails, // 🔥 use bcc for privacy
+    await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: adminEmails,
       subject: `New Message from ${senderName}`,
       html: `
         <h2>New Message via NEMSU Website</h2>
-        <p><strong>Sender Name:</strong> ${senderName}</p>
-        <p><strong>Sender Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
+        <p><strong>Name:</strong> ${senderName}</p>
+        <p><strong>Email:</strong> ${email}</p>
         <p>${message}</p>
       `
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
-
+    console.log("Email sent successfully");
   } catch (error) {
-    console.error("Email Error:", error.message);
+    console.error("Error sending email:", error);
   }
 };
 
-module.exports = sendAdminMail;
+module.exports = sendMails;

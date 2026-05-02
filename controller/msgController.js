@@ -19,7 +19,7 @@ const msgController = async (req, res) => {
       message
     });
 
-    await sendMail({ senderName, email, message });
+    await sendMail( senderName, email, message );
 
     res.status(201).json({
       status: "Message stored successfully",
