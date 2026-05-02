@@ -1,4 +1,4 @@
-const getMgs=require('../scripts/getAllMsg.js')
+const getMsgs=require('../scripts/getAllMsg.js')
 const express=require('express');
 const router=express.Router();
 
