@@ -1,5 +1,6 @@
 const getMsgs=require('../scripts/getAllMsg.js')
 const Message=require('../models/messageModel.js')
+const noUnreadMsg=require('../scripts/unreadMsg.js')
 const express=require('express');
 const router=express.Router();
 
@@ -28,5 +29,6 @@ router.patch("/read/:id", async (req, res) => {
     });
   }
 });
+router.get('unread-count',noUnreadMsg);
 
 module.exports=router;
