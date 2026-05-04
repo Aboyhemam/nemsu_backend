@@ -79,7 +79,7 @@ const loginAdmin = async (req, res) => {
       admin: {
         username: admin.username,
         email:    admin.email,
-        role:     admin.role,
+        post:     admin.post,
       },
     })
   } catch (error) {
