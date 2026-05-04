@@ -14,11 +14,10 @@ const verifyFinance = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        if (
-            decoded.post !== 'finance' &&
-            decoded.post !== 'GS' &&
-            decoded.post !== 'President'
-        ) {
+        // normalize case to avoid mismatch
+        const post = decoded.post?.toLowerCase();
+
+        if (!['finance', 'gs', 'president'].includes(post)) {
             return res.status(403).json({ message: "Access denied" });
         }
 
