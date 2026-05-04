@@ -4,7 +4,7 @@ const Event = require('../models/event_model.js');
 
 const getAllEvents = async (req, res) => {
     try {
-        const events = await Event.find();
+        const events = await Event.find().sort({ createdAt: -1 });
 
         res.status(200).json({
             success: true,
