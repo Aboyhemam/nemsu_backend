@@ -67,7 +67,7 @@ const loginAdmin = async (req, res) => {
 
     // 3. Sign JWT
     const token = jwt.sign(
-      { id: admin._id, role: admin.post },
+      { id: admin._id, post: admin.post },
       process.env.JWT_SECRET,
       { expiresIn: '1d' }
     )
