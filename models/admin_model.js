@@ -1,11 +1,11 @@
-const db=require('mongoose')
+const db = require('mongoose')
 
-const adminSchema=new db.Schema({
-    username:{ type: String, unique:true, required:true},
-    email:{type:String, unique:true, required:true},
-    password:{type:String, required:true},
-    role:{type:String, required:true},
-    post:{type:String, required: true, unique:true}
-},{timestamps:true})
+const adminSchema = new db.Schema({
+    username: { type: String, unique: true, required: true },
+    email:    { type: String, unique: true, required: true },
+    password: { type: String, required: true },
+    role:     { type: String, required: true },          // ✅ removed unique
+    post:     { type: String, required: true }           // ✅ removed unique
+}, { timestamps: true })
 
-module.exports=db.model('Admin',adminSchema);
+module.exports = db.model('Admin', adminSchema)
