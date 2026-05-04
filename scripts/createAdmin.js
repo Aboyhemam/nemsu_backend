@@ -2,11 +2,11 @@ const Admin=require('../models/admin_model.js');
 const bcrypt=require('bcrypt');
 
 const createAdmin= async()=>{
-    const hPassword=await bcrypt.hash("Naresh@2004",10);
+    const hPassword=await bcrypt.hash("loya@1234",10);
     const adminData={
-        username: "naresh",
-        email: "markhemam@gmail.com",
-        role: 'developer',
+        username: "loya",
+        email: "yambemloya@gmail.com",
+        role: 'finance',
         password: hPassword
     };
 
