@@ -6,7 +6,8 @@ const createAdmin= async()=>{
     const adminData={
         username: "loya",
         email: "yambemloya@gmail.com",
-        role: 'finance',
+        role: 'admin',
+        post: 'finance',
         password: hPassword
     };
 

@@ -3,9 +3,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { loginAdmin, ipGuard } = require('../controller/adminlogincontroller');
+const { loginAdmin } = require('../controller/adminlogincontroller');
+const authMiddle= require('../middleware/authmiddleware.js');
 
 // Apply IP restriction ONLY to login route
-router.post('/login', ipGuard, loginAdmin);
+router.post('/login',  loginAdmin);
 
 module.exports = router;
