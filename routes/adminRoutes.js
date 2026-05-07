@@ -10,7 +10,7 @@ const getNotice=require('../scripts/getNotice.js')
 // Apply middleware to ALL routes below
 router.use(ipGuard);
 router.post('/createEvents', upload.array('images'), uploadEvent);
-router.post('/updateEvent/:id', upload.array('images'),updateEvent);
+router.put('/updateEvent/:id', upload.array('images'),updateEvent);
 router.post('/uploadNotice',upload.single('file'),uploadNotice);
 router.get('/getEvents',getEvents);
 router.get('/getNotice',getNotice);
