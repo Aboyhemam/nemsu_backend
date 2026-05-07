@@ -6,11 +6,13 @@ const upload = require('../middleware/multer_setup.js');
 const uploadEvent = require('../controller/image_upload.js');
 const updateEvent=require('../controller/updateEvent.js')
 const uploadNotice=require('../controller/uploadNotice.js')
+const getNotice=require('../scripts/getNotice.js')
 // Apply middleware to ALL routes below
 router.use(ipGuard);
 router.post('/createEvents', upload.array('images'), uploadEvent);
 router.post('/updateEvent', upload.array('images'),updateEvent);
 router.post('/uploadNotice',upload.single('file'),uploadNotice);
 router.get('/getEvents',getEvents);
+router.get('/getNotice',getNotice);
 
 module.exports = router;
