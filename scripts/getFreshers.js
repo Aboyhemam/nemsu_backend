@@ -7,8 +7,8 @@ const getFresher= async(req,res)=>{
 
         res.status(200).json({
             success: true,
-            count: events.length,
-            data: events
+            count: freshers.length,
+            data: freshers
         });
     }catch(error){
         res.status(500).json({
