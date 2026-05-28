@@ -17,7 +17,7 @@ const verifyFinance = (req, res, next) => {
         // normalize case to avoid mismatch
         const post = decoded.post?.toLowerCase();
 
-        if (!['finance', 'gs', 'president'].includes(post)) {
+        if (!['finance'].includes(post)) {
             return res.status(403).json({ message: "Access denied" });
         }
 
