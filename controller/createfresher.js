@@ -1,14 +1,15 @@
 const fresher=require('./../models/fresher_model.js')
 
 const createFresher= async(req,res)=>{
-    const { name, parentName, phoneNo, parentNo, email, address, entry, status }=req.body;
+    const { name, parentName, phoneNo, parentNo, email, address, entry, status, gender }=req.body;
     try{
-        if( !name || !parentName || !phoneNo || !parentNo || !email || !address || !entry || !status ){
+        if( !name || !parentName || !phoneNo || !parentNo || !email || !address || !entry || !status || !gender ){
             return res.status(400).json({message: "All fields are required"});
         }
         const newPerson= await fresher.create({
             name,
             parentName,
+            gender,
             phoneNo,
             parentNo,
             email,

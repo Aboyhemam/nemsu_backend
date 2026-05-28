@@ -3,6 +3,7 @@ const db=require("mongoose")
 const fresher= new db.Schema({
     name: {type:String},
     parentName: {type:String},
+    gender:{type:String, enum:["","Male","Female"],default:""},
     phoneNo:{type:String},
     parentNo:{type:String},
     email:{type:String},
