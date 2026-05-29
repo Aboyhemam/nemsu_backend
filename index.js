@@ -15,6 +15,7 @@ const msgRoute=require('./routes/msgRoutes.js')
 const financeRoute=require('./routes/financeRoutes.js')
 const getMsg=require('./routes/getMsgRoute.js')
 const fresherRoute=require('./routes/fresherRoutes.js')
+const sendEmail=require("./scripts/sendEmail.js")
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -34,6 +35,7 @@ const startServer = async () => {
     try {
         await dbConfig();
         await createAdmin();
+        
 
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);

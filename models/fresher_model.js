@@ -8,7 +8,7 @@ const fresher= new db.Schema({
     parentNo:{type:String},
     email:{type:String},
     address:{type:String},
-    entry:{type:String, enum:["","NEE I","NEE II (BBA)","NEE II(PCB Forestry)","NEE II(PCM Science)","NEE II(PCM E&T)","JEE","QUET","NEE III","NEPTGET"], deafult:""},
+    entry:{type:String, enum:["","NEE I","NEE II (BBA)","NEE II(PCB Forestry)","NEE II(PCM Science)","NEE II(PCM E&T)","JEE","QUET","NEE III","NEPGET"], deafult:""},
     status:{type:String, enum:["","Selected","Waiting"],default:""}
 },{timestamps:true})
 
