@@ -16,6 +16,7 @@ const financeRoute=require('./routes/financeRoutes.js')
 const getMsg=require('./routes/getMsgRoute.js')
 const fresherRoute=require('./routes/fresherRoutes.js')
 const sendEmail=require("./scripts/sendEmail.js")
+const memberRoute=require("./routes/memberRoute.js")
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -29,13 +30,14 @@ app.use('/msg',msgRoute);
 app.use('/finance',financeRoute);
 app.use('/msg',getMsg);
 app.use('/fresher',fresherRoute)
+app.use('/member',memberRoute);
 
 // Start Server
 const startServer = async () => {
     try {
         await dbConfig();
         await createAdmin();
-        
+        /*await sendEmail();*/
 
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
