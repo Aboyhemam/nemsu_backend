@@ -37,9 +37,9 @@ const addMember = async (req, res) => {
             course, department, admissionYear, admittedThrough,
             fatherName, motherName,
             phoneNo, email, parentPhoneNo,
-            passportPhoto_fieldId,
-            student_sign_fieldId,
-            parent_sign_fieldId,
+            passportPhoto_fileId,
+            student_sign_fileId,
+            parent_sign_fileId,
             payment_SS_fileId,
         })
 
