@@ -25,6 +25,6 @@ const member= new db.Schema({
     payment_SS_fileId:    { type: String,required:true },
 
 
-});
+},{timestamps:true});
 
 module.exports=db.model("Member",member);
