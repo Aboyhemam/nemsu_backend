@@ -1,6 +1,7 @@
 const app=require("express")
 const router=app.Router();
 const newMember=require("./../controller/createMember.js")
+const getMember=require("./../scripts/getAllMembers.js")
 const upload = require('../middleware/multer_setup.js');
 router.post(
   "/add",
@@ -12,5 +13,6 @@ router.post(
   ]),
   newMember
 );
+router.get('/all',getMember);
 
 module.exports=router;
