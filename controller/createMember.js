@@ -24,10 +24,10 @@ const addMember = async (req, res) => {
             return result.url
         }
 
-        const passportPhoto_URL = await uploadFile('passportPhoto', 'passport_photos')
-        const student_sign_URL  = await uploadFile('student_sign',  'signatures')
-        const parent_sign_URL   = await uploadFile('parent_sign',   'signatures')
-        const payment_SS_URL    = await uploadFile('payment_SS',    'payments')
+        const passportPhoto_fileId = await uploadFile('passportPhoto', 'passport_photos')
+        const student_sign_fileId  = await uploadFile('student_sign',  'signatures')
+        const parent_sign_fileId   = await uploadFile('parent_sign',   'signatures')
+        const payment_SS_fileId    = await uploadFile('payment_SS',    'payments')
 
         // ── Save to DB ──
         const newMember = await Member.create({
@@ -37,10 +37,10 @@ const addMember = async (req, res) => {
             course, department, admissionYear, admittedThrough,
             fatherName, motherName,
             phoneNo, email, parentPhoneNo,
-            passportPhoto_URL,
-            student_sign_URL,
-            parent_sign_URL,
-            payment_SS_URL,
+            passportPhoto_fieldId,
+            student_sign_fieldId,
+            parent_sign_fieldId,
+            payment_SS_fileId,
         })
 
         res.status(201).json({
